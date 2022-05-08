@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/ilya/PycharmProjects/lsml2_final/mlruns/0/dd35a2de5b1f4dd5b0c197dba6a0e1a7/artifacts
+end_time: 1651946725759
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: dd35a2de5b1f4dd5b0c197dba6a0e1a7
+run_uuid: dd35a2de5b1f4dd5b0c197dba6a0e1a7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1651946694251
+status: 3
+tags: []
+user_id: ilya

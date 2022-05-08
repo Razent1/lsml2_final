@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  mlflow:
+    restart: always
+    build: ./mlflow_deploy
+    image: 'atcommons/mlflow-server'
+    ports:
+      - "5000:5000"
+    volumes:
+      - "mlrun_data:/mlruns"
+    environment:
+      BACKEND_URI: sqlite:////mlflow/mlflow.db
+      ARTIFACT_ROOT: /mlflow/artifacts
+    expose:
+      - 5000
+
+  redis:
+    image: redis
+    ports:
+      - '6379:6379'
+
+  broker:
+    build: ./brocker
+    volumes:
+      - ./brocker:/brocker
+    depends_on:
+      - redis
+
+  flask_api:
+    build: ./api
+    volumes:
+      - ./api:/api
+    ports:
+      - 9091:8000
+    expose:
+      - 9091
+
+volumes:
+  mlrun_data:
